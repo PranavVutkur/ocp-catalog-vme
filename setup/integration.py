@@ -23,7 +23,7 @@ def create_ocp_form(api_base, headers):
     url = f"{api_base}/api/library/option-type-forms"
     payload = '''{
   "optionTypeForm": {
-    "code": "Input-RHOCP123",
+    "code": "inputocp",
     "config": {
       "enableVar": false,
       "form": "",
@@ -1840,7 +1840,7 @@ def create_ocp_form(api_base, headers):
     ],
     "labels": [],
     "locked": false,
-    "name": "Input-RHOCP-fromcode",
+    "name": "Input_Form_OCP_Cluster",
     "options": []
   }
 }
@@ -1856,7 +1856,7 @@ def create_vmecluster_form(api_base, headers):
     url = f"{api_base}/api/library/option-type-forms"
     payload = '''{
         "optionTypeForm": {
-            "code": "vmeclustertestfromcode",
+            "code": "inputvme",
             "config": {
                 "enableVar": false,
                 "form": "",
@@ -2792,7 +2792,7 @@ def create_vmecluster_form(api_base, headers):
             ],
             "labels": [],
             "locked": false,
-            "name": "vme_cluster_from_code",
+            "name": "Input_Form_VME_Cluster",
             "options": [
                 {
                     "advanced": false,
@@ -3101,7 +3101,7 @@ def create_vme_catalog(api_base, headers, vme_form_id, vme_wf_id):
     "workflow": {
       "id": vme_wf_id
     },
-    "name": "vme catalog from code",
+    "name": "VME Cluster Deployment",
     "code": "vmecatalog",
     "context": "appliance",
     "iconPath": "/branding/140x40/ubuntu.svg"
@@ -3132,7 +3132,7 @@ def create_ocp_catalog(api_base, headers, ocp_form_id, ocp_wf_id):
     "workflow": {
       "id": ocp_wf_id
     },
-    "name": "ocp catalog from code",
+    "name": "OpenShift Cluster Deployment",
     "code": "ocpcatalog",
     "context": "appliance",
     "iconPath": "/branding/140x40/rhel.svg"
