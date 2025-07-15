@@ -2,17 +2,22 @@ import requests
 import urllib3
 import time
 import json 
+import yaml
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-API_BASE = "https://20.20.20.100"
-API_Username = "hpeadmin"
-API_Password = "Password!234"
+with open("input.yaml", "r") as file:
+    config = yaml.safe_load(file)
+
+API_BASE = config["vme_manager_ip"]
+API_Username = config["vme_manager_username"]
+API_Password = config["vme_manager_password"]
+giturl= config["git_url"]
+gituser= config["git_username"]
+gitpwd = config["git_access_token"]
+
 int_name= "ocp"
 BRANCH = "main"
-giturl= "https://github.com/Rvbh90/Morpheus-catalog.git"
-gituser= "Rvbh90"
-gitpwd = "Git@7557"
 
 def create_ocp_form(api_base, headers):
     url = f"{api_base}/api/library/option-type-forms"
@@ -2945,7 +2950,7 @@ def create_integration(api_base, headers, default_branch, giturl, gituser, gitpw
             "name": int_name,
             "serviceUrl": giturl,
             "serviceUsername": gituser,
-            "servicePassword": gitpwd
+            "serviceToken": gitpwd
         }
     }
     try:

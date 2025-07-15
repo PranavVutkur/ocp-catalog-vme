@@ -1,0 +1,6 @@
+vme_manager_ip: "https://X.X.X.X"
+vme_manager_username: ""
+vme_manager_password: ""
+git_url: ""
+git_username: ""
+git_access_token: ""
